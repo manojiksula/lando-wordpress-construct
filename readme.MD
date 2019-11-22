@@ -8,6 +8,7 @@ Installs a WordPress for local development either from scratch, either from a gi
 ### Instalation
 
 ```sh
+$ git clone git@github.com:plagioriginal/lando-wordpress-construct.git project-folder
 $ cd project-folder
 $ sh .scripts/project-starter.sh
 ```
