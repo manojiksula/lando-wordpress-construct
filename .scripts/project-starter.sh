@@ -64,8 +64,8 @@ install_wordpress_core() {
         echo " * Setting up \"${TITLE}\" at ${URL}"
         lando wp core install --url="${URL}" --title="${TITLE}" --admin_user=admin --admin_password=password --admin_email="${ADMIN_EMAIL}"
     fi
-    
-    read -p "Downgrate to specific version? | default n |: " wordpress_version
+
+    read -p "Downgrate to specific version? | Live empty if you don't want to downgrade |: " wordpress_version
 
     if [ ! -z "${wordpress_version}" ]; then
         echo "${wordpress_version}"
@@ -110,8 +110,6 @@ install_existing_wordpress_from_repo() {
     else
         setup_config
     fi
-
-    install_wordpress_core
 }
 
 # 
@@ -120,14 +118,14 @@ install_existing_wordpress_from_repo() {
 # 
 import_database() {
     cd "$ROOT"
-    lando wp db import db.sql
+    lando db-import db.sql
 }
 
 #
 # Inits the script to install a wordpress installation
 #
 init() {
-    read -p "Install From Scratch? (y/n)? | default n |: " from_scratch
+    read -p "Want to install wordpress from scratch? If not, you'll be asked a git repository (y/n)? | default n |: " from_scratch
 
     case "${from_scratch}" in
         y|Y ) FROM_SCRATCH=1;;
