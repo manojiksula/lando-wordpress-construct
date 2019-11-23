@@ -1,0 +1,12 @@
+name: wordpress-boilerplate
+recipe: wordpress
+config:
+  webroot: wordpress
+
+services:
+  node:
+    type: node
+
+tooling:
+  npm:
+    service: node
