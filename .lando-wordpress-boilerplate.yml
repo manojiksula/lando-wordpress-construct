@@ -2,6 +2,9 @@ name: wordpress-boilerplate
 recipe: wordpress
 config:
   webroot: wordpress
+  xdebug: true
+  config:
+    php: lando-config/php.ini
 
 services:
   node:
